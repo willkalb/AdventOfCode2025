@@ -1,7 +1,7 @@
-from Helper import *
+import Helper
 DAY = "1"
 
-lines = get_input_lines(DAY)
+lines = Helper.get_input_lines(DAY)
 
 num = 50
 zero_counter = 0

@@ -4,8 +4,18 @@ from SQL import Exec_SQL
 run_days = [
     {
         "day": 1,
+        "python": False,
+        "sql": False
+    },
+    {
+        "day": 2,
+        "python": False,
+        "sql": False
+    },
+    {
+        "day": 3,
         "python": True,
-        "sql": True
+        "sql": False
     }
 ]
 
