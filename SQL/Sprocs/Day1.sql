@@ -53,7 +53,7 @@ BEGIN
 
 		DECLARE @rows_1 INT = (SELECT COUNT(*) FROM @steps_agg)
 		DECLARE @curr_id_1 INT = (SELECT MIN(id) FROM @steps)
-		DECLARE @zero_COUNTer_1 INT = 0
+		DECLARE @zero_counter_1 INT = 0
 
 		DECLARE steps_agg_cursor CURSOR FOR SELECT id, c FROM @steps_agg ORDER BY id;
 		DECLARE @id_1 INT, @c_1 INT
@@ -76,7 +76,7 @@ BEGIN
 
 				IF @num = 0
 				BEGIN
-					SET @zero_COUNTer_1 += 1
+					SET @zero_counter_1 += 1
 				END
 				FETCH NEXT FROM steps_agg_cursor INTO @id_1, @c_1
 			END
@@ -84,7 +84,7 @@ BEGIN
 			DEALLOCATE steps_agg_cursor
 		END
 
-		SELECT @zero_COUNTer_1
+		SELECT @zero_counter_1
 	END
 
     IF @part = 2
@@ -95,7 +95,7 @@ BEGIN
 
 		DECLARE @rows_2 INT = (SELECT COUNT(*) FROM @ordered_steps)
 		DECLARE @curr_id_2 INT = (SELECT MIN(id) FROM @ordered_steps)
-		DECLARE @zero_COUNTer_2 INT = 0
+		DECLARE @zero_counter_2 INT = 0
 
 		DECLARE ordered_steps_cursor CURSOR FOR SELECT id, num FROM @ordered_steps ORDER BY id;
 		DECLARE @id_2 INT, @c_2 INT
@@ -118,7 +118,7 @@ BEGIN
 
 				IF @num = 0
 				BEGIN
-					SET @zero_COUNTer_2 += 1
+					SET @zero_counter_2 += 1
 				END
 				FETCH NEXT FROM ordered_steps_cursor INTO @id_2, @c_2
 			END
@@ -126,7 +126,7 @@ BEGIN
 			DEALLOCATE ordered_steps_cursor
 		END
 
-		SELECT @zero_COUNTer_2
+		SELECT @zero_counter_2
 	END
 	
 END
