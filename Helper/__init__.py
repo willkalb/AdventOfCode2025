@@ -10,3 +10,8 @@ def get_input_lines(day):
     with chdir("Inputs\\"):
         with open(str(day), "r") as f:
             return [ line.rstrip() for line in f ]
+        
+def get_input_lines_preserve_space(day):
+    with chdir("Inputs\\"):
+        with open(str(day), "r") as f:
+            return [ line.replace("\n", "") for line in f ]

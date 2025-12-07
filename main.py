@@ -24,6 +24,11 @@ run_days = [
     },
     {
         "day": 5,
+        "python": False,
+        "sql": False
+    },
+    {
+        "day": 6,
         "python": True,
         "sql": False
     }
