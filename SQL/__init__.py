@@ -1,7 +1,7 @@
 from .db_connect import Open, Close
 from Helper import *
 
-def Exec_SQL(day):
+def Exec_SQL(day: int):
     db = Open()
 
     db.execute(f"exec Day{day} @input_as_string = ?, @part = ?", [ ",".join(get_input_lines(day)), 1 ])

@@ -1,7 +1,7 @@
 from Python import Exec_Py
 from SQL import Exec_SQL
 
-run_days = [
+run_days: list[dict[str, int | bool]] = [
     {
         "day": 1,
         "python": False,
