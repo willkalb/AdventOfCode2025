@@ -3,22 +3,23 @@ DAY = "5"
 
 lines = Helper.get_input_lines(DAY)
 
-fresh_ranges = []
-ids = []
+fresh_ranges: list[tuple[int, int] | None] = []
+ids: list[int] = []
 
 for line in lines:
     if len(line) == 0:
         continue
     
     if "-" in line:
-        fresh_ranges.append(tuple([ int(l) for l in line.split("-") ]))
+        l = [ int(l) for l in line.split("-") ]
+        fresh_ranges.append((l[0], l[1]))
         continue
     
     ids.append(int(line))
 
-fresh_ids = []
+fresh_ids: list[int] = []
 for id in ids:
-    for low, high in fresh_ranges:
+    for low, high in [ fr for fr in fresh_ranges if fr != None ]:
         if id >= low and id <= high:
             fresh_ids.append(id)
             break
@@ -31,8 +32,8 @@ for r in range(0, len(fresh_ranges) - 1):
         if fresh_ranges[r] == None or fresh_ranges[rr] == None:
             continue
         
-        r_low, r_high = fresh_ranges[r]
-        rr_low, rr_high = fresh_ranges[rr]
+        r_low, r_high = fresh_ranges[r] # type: ignore      Can't be None due to the conditional above
+        rr_low, rr_high = fresh_ranges[rr] # type: ignore   Can't be None due to the conditional above
 
         # r     |----
         # rr    |----
@@ -130,6 +131,4 @@ for r in range(0, len(fresh_ranges) - 1):
             fresh_ranges[rr] = (rr_low, rr_high - 1)
             continue
 
-fresh_ranges = [ fr for fr in fresh_ranges if fr != None ]
-
-print(f"\tPart 2: {sum([ high - low + 1 for low, high in fresh_ranges ])}")
+print(f"\tPart 2: {sum([ high - low + 1 for low, high in [ fr for fr in fresh_ranges if fr != None ] ])}")

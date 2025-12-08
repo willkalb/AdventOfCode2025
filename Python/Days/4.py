@@ -6,13 +6,13 @@ rows = Helper.get_input_lines(DAY)
 ROWS = len(rows)
 COLS = len(rows[0])
 
-accessable = []
+accessable: list[tuple[int, int]] = []
 for r in range(ROWS):
     for c in range(COLS):
         if rows[r][c] != "@":
             continue
 
-        paper_neighbors = []
+        paper_neighbors: list[tuple[int, int]] = []
         for r_offset in range(-1, 2):
             for c_offset in range(-1, 2):
                 if r_offset == 0 and c_offset == 0:
@@ -32,9 +32,9 @@ for r in range(ROWS):
 print(f"\tPart 1: {len(accessable)}")
 
 
-removed = []
+removed: list[tuple[int, int]] = []
 while True:
-    gen_removed = []
+    gen_removed: list[tuple[int, int]] = []
     for r in range(ROWS):
         for c in range(COLS):
             if rows[r][c] != "@":

@@ -5,7 +5,7 @@ line = Helper.get_input_line(DAY)
 ranges = line.split(",")
 
 # { id_len: [ (groups, group_len) ]}
-divs = {
+divs: dict[int, list[tuple[int, int]]] = {
     10: [ (2, 5) ],
     8: [ (2, 4) ],
     6: [ (2, 3) ],

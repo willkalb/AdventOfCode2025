@@ -1,17 +1,17 @@
 from contextlib import chdir
 
 
-def get_input_line(day):
+def get_input_line(day: str):
     with chdir("Inputs\\"):
         with open(str(day), "r") as f:
             return f.read()
         
-def get_input_lines(day):
+def get_input_lines(day: str):
     with chdir("Inputs\\"):
         with open(str(day), "r") as f:
             return [ line.rstrip() for line in f ]
         
-def get_input_lines_preserve_space(day):
+def get_input_lines_preserve_space(day: str):
     with chdir("Inputs\\"):
         with open(str(day), "r") as f:
             return [ line.replace("\n", "") for line in f ]

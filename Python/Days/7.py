@@ -34,8 +34,8 @@ def SetPathSpecs(path: list[tuple[int, int]]):
     path_memo[(x, y)] = paths_ended - start_path_num
 
 
-path_memo = {}
-splits = set()
+path_memo: dict[tuple[int, int], int] = {}
+splits: set[tuple[int, int]] = set()
 paths_ended = 0
 SetPathSpecs([(lines[0].find("S"), 0)])
 

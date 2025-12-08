@@ -12,7 +12,7 @@ print(f"\tPart 1: {total_sum}")
 lines = [ " " + s for s in Helper.get_input_lines_preserve_space(DAY) ]
 
 total_sum = 0
-nums = []
+nums: list[str] = []
 for c in range(len(lines[0]) - 1, -1, -1):
     curr_num = "".join([ lines[r][c] for r in range(0, len(lines)) if lines[r][c].isdigit() ])
 
