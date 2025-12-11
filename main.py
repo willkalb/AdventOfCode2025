@@ -34,6 +34,21 @@ run_days: list[dict[str, int | bool]] = [
     },
     {
         "day": 7,
+        "python": False,
+        "sql": False
+    },
+    {
+        "day": 8,
+        "python": False,
+        "sql": False
+    },
+    {
+        "day": 9,
+        "python": False,
+        "sql": False
+    },
+    {
+        "day": 10,
         "python": True,
         "sql": False
     }
